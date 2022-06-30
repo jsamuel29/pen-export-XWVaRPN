@@ -1,0 +1,67 @@
+@mixin myflex {
+  display: flex;
+}
+
+@mixin second-flex {
+  flex: 1;
+  justify-content: space-between;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+@mixin third-flex {
+   flex-direction: column;
+   justify-content: center;
+   margin-left: 20px;
+}
+
+@mixin title-flex {
+  margin: 0px;
+}
+
+@mixin button-flex {
+  height: 100%;
+  align-items: center;
+  flex-direction: row;
+  width: 42px;
+  font-size: 2em;
+}
+
+.container {
+  @include myflex;
+  .item {
+    @include myflex;
+    @include second-flex;
+    .content {
+      @include myflex;
+      .metadata {
+        @include myflex;
+        @include third-flex;
+        .title {
+          @include title-flex;
+        }
+      }
+    }
+    .btn-group {
+      @include myflex;
+      align-items: center;
+      .button {
+        @include myflex;
+        @include button-flex;
+        justify-content: center;
+        a {
+          color: green;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: maroon;
+          cursor: pointer;
+          a {
+           color: white; 
+          }
+        }
+      }
+    }
+  }
+}
